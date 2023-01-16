@@ -14,6 +14,9 @@ jobs:
           echo "This will only run on branch-1"
       - name: checking out code
         uses: actions/checkout@v3
+      - name: list files
+        run: |
+          ls -lah  
       - name: run the script
         run: ./script.sh
       - name: output something
