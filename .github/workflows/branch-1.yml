@@ -12,3 +12,29 @@ jobs:
         run: |
           echo "Welcome to Github Actions"
           echo "This will only run on branch-1"
+      - name: checking out code
+        uses: actions/checkout@v3
+      - name: run the script
+        run: ./script.sh
+      - name: output something
+        run: |
+          echo "Helloooooo" > file1.txt
+      - name: upload the file
+        uses: actions/upload-artifact@v2
+        with:
+          name: file-upload-1
+          path: ./file1.txt
+
+  my-second-job:
+    name: My second jobs
+    runs-on: ubuntu-latest
+    steps:
+      - name: download the file
+        uses: actions/download-artifact@v2
+        with:
+          name: file-upload-1
+      - name: view file
+        run: |
+          cat ./file1.txt
+
+

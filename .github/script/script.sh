@@ -1,0 +1,1 @@
+echo "I'm running from script file"
