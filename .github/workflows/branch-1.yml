@@ -1,0 +1,14 @@
+name: brach-1 workflow
+on: 
+   push:
+     branches:
+       - "branch-1"
+jobs:
+  my-first-job:
+    name: My first jobs
+    runs-on: ubuntu-latest
+    steps:
+      - name: say Hi
+        run: |
+          echo "Welcome to Github Actions"
+          echo "This will only run on branch-1"
