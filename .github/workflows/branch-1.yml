@@ -1,4 +1,4 @@
-name: brach-1 workflow
+name: branch-1 workflow
 on: 
    push:
      branches:
@@ -16,12 +16,13 @@ jobs:
         uses: actions/checkout@v3
       - name: list files
         run: |
-          ls -lah  
+          chmod +x ./script.sh && ls -lah 
       - name: run the script
         run: ./script.sh
       - name: output something
         run: |
           echo "Helloooooo" > file1.txt
+          echo 'We are running on: ${{ runner.os }}'
       - name: upload the file
         uses: actions/upload-artifact@v2
         with:
